@@ -28,7 +28,7 @@ De esta forma, el texto original se invierte completamente, demostrando el uso d
 ## 💭 Preguntas solicitadas
 
 ### 1️⃣ ¿Cree que exista otra forma de efectuar la inversión del contenido de un archivo sin usar una pila?
-
+---
 Sí, se podría leer el contenido completo usando páginas web que hasgan este tipo de conversión de lectura pero sin código no lo veo posible a menos que se haga manual.
 ---
 
