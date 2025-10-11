@@ -28,11 +28,11 @@ De esta forma, el texto original se invierte completamente, demostrando el uso d
 ## 💭 Preguntas solicitadas
 
 ### 1️⃣ ¿Cree que exista otra forma de efectuar la inversión del contenido de un archivo sin usar una pila?
-Sí. Se podría leer el contenido completo usando paginas web que hagan este tipo de lecturas pero sin codigo no lo veo posible a menos que sea manual.
+**Sí. Se podría leer el contenido completo usando paginas web que hagan este tipo de lecturas pero sin codigo no lo veo posible a menos que sea manual.
 ---
 
 ### 2️⃣ ¿En qué ejemplo de la vida real (no informático) se puede ver reflejado el uso de una pila?
-Un ejemplo cotidiano es una cuando navegamos en internet, al presionar “atrás”, regresas a la última página que visitaste primero..
+**Un ejemplo cotidiano es una cuando navegamos en internet, al presionar “atrás”, regresas a la última página que visitaste primero..
 
 ---
 
