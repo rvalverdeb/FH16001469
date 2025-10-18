@@ -51,6 +51,11 @@ Al correr abre una ventana gráfica con botones como:
 
 Y áreas con títulos "Caja", "Mazo", "Mano" y "Pozo"
 
+### Editores
+
+-Netbeans
+-VisualStudioCode
+
 ---
 
 
