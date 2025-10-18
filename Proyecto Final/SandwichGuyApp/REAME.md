@@ -35,11 +35,11 @@
 ### Compilación
 Solamente le damos Run file sobre la clase SandwichGuyApp.java
 
-javac -d out src/main/java/model/Carta.java src/main/java/model/CircularList.java src/main/java/app/SandwichGuyApp.java
+```javac -d out src/main/java/model/Carta.java src/main/java/model/CircularList.java src/main/java/app/SandwichGuyApp.java```
 
 ### Ejecución
 
-java -cp out app.SandwichGuyApp
+```java -cp out app.SandwichGuyApp```
 
 Al correr abre una ventana gráfica con botones como:
 
