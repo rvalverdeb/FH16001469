@@ -10,7 +10,7 @@
 ## Integrantes
 - Reyner Valverde — Carné: FH16001469 — GitHub: rvalverdeb — Email: rey.ner25@hotmail.com
 - Valentina Garcia Marin — Carné: FI24036587 — GitHub: rvalverdeb — Email: rey.ner25@hotmail.com
-- Nahúm Mejía Castillo — Carné: FI24043887 — GitHub: rvalverdeb — Email: rey.ner25@hotmail.com
+- Nahúm Mejía Castillo — Carné: FI24043887 — GitHub: Nahum99 — Email: nahumm775@gmail.com
 
 
 ---
@@ -35,8 +35,11 @@
 ### Compilación
 Solamente le damos Run file sobre la clase SandwichGuyApp.java
 
+javac -d out src/main/java/model/Carta.java src/main/java/model/CircularList.java src/main/java/app/SandwichGuyApp.java
 
 ### Ejecución
+
+java -cp out app.SandwichGuyApp
 
 Al correr abre una ventana gráfica con botones como:
 
