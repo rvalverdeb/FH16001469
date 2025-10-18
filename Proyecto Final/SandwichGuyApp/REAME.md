@@ -17,7 +17,6 @@
 
 
 ## Entregables incluidos en este avance
-- `src/`:
 - `model/Carta.java`
 - `model/CircularList.java`
 - `app/SandwichGuyApp.java` (interfaz gráfica básica con Swing)
