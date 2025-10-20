@@ -9,7 +9,7 @@
 
 ## Integrantes
 - Reyner Valverde — Carné: FH16001469 — GitHub: rvalverdeb — Email: rey.ner25@hotmail.com
-- Valentina Garcia Marin — Carné: FI24036587 — GitHub: rvalverdeb — Email: rey.ner25@hotmail.com
+- Valentina Garcia Marin — Carné: FI24036587 — GitHub: valentinagarcia — Email: valentinagarciamarin.vgm@gmail.com
 - Nahúm Mejía Castillo — Carné: FI24043887 — GitHub: Nahum99 — Email: nahumm775@gmail.com
 
 
