@@ -158,12 +158,17 @@ f(2, 5) = 2 • f(2, 4) + f(2, 3) = 2 • 17 + 7 = 34 + 7 = 41
 
 Una vez arreglado este método (`recursive`), ya se debería observar en la Consola (cuando se ejecute el programa), los valores de cada número metálico. Esto gracias a que utiliza la técnica de dividir el resultado del `n`-ésimo con su número anterior: `f(z, n) / f(z, n - 1)`. Es importante mencionar que se definió `25` como `n` para este programa de manera global, ya que se comprobó que no desborda la pila de ejecución, por lo que la razón (división) estará siempre dada por: `f(z, 25) / f(z, 24)`.
 
+// Método `recursive` actualizado para calcular correctamente el n-ésimo valor de la sucesión.
+// Definición: f(z, 0) = 1, f(z, 1) = 1, f(z, n) = z * f(z, n-1) + f(z, n-2)
+// Implementación tomada de: Gemini
 <br />
 
 #### _Update_
 
 Implemente el mismo algoritmo de modo iterativo, es decir, utilizando bucles (`do`, `for`, `while`). Para esto se debe actualizar el método `iterative`.
 
+// Método `iterative` implementado para calcular la sucesión de manera iterativa.
+// Implementación tomada de: Gemini
 <br />
 
 ### Pilas
@@ -211,12 +216,16 @@ Arregle el método `push` para corregir la ejecución del programa. Note que par
 - `true` si el ítem se pudo insertar.
 - `false` si el ítem no se pudo insertar debido a un "desbordamiento" de la pila.
 
+// Método `push` corregido para retornar true si se inserta el ítem, false si hay overflow.
+// Implementación tomada de: Gemini
 <br />
 
 #### _Update_
 
 Modifique los métodos `pop` y `peek` para que retornen `null` en caso que la pila esté vacía.
 
+// Métodos `pop` y `peek` modificados para retornar null si la pila está vacía.
+// Implementación tomada de: Gemini
 <br />
 
 ### Colas
@@ -253,6 +262,10 @@ End {empty}
 
 Actualice los métodos `dequeue` y `getFront` para obtener el primer elemento de la cola, donde `dequeue` lo retorna y lo quita de la cola, y `getFront` solo lo retorna sin quitarlo. En caso de que la cola esté vacía, se debe retornar un `null`. Para estos casos, no se puede usar ningún condicional (`if ... else ...` o `... ? ... : ...`), por lo que debe investigar lo suministrado por el componente [ArrayDeque](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayDeque.html).
 
+// Métodos `dequeue` y `getFront` actualizados para retornar el primer elemento correctamente.
+// Retornan null si la cola está vacía, usando métodos de ArrayDeque sin condicionales.
+// Implementación tomada de: Gemini
+
 <br />
 
 #### _Update_
@@ -261,6 +274,9 @@ Implemente el método `getCodons` para que retorne las ternas de nucleótidos. P
 
 Como se puede notar, la cola quedará vacía una vez este método se invoque.
 
+// Método `getCodons` implementado para generar un arreglo de codones (tripletas de nucleótidos).
+// Vacía la cola mientras construye las ternas, tamaño del arreglo = n / 3.
+// Implementación tomada de: Gemini
 <br />
 
 ## Rúbrica de evaluación
