@@ -12,18 +12,80 @@ public class ListDoublyCircular<T> implements ListInterface<T> {
     }
 
     public void addFirst(T value) {
+        NodeDoubly<T> newNode = new NodeDoubly<>(value);
+        
+        if (isEmpty()) {
+            // Lista vacía: el nuevo nodo apunta a sí mismo
+            head = tail = newNode;
+            newNode.next = newNode;
+            newNode.prev = newNode;
+        } else {
+            // Insertar al inicio
+            newNode.next = head;
+            newNode.prev = tail;
+            head.prev = newNode;
+            tail.next = newNode;
+            head = newNode;
+        }
     }
 
     public void addLast(T value) {
+        NodeDoubly<T> newNode = new NodeDoubly<>(value);
+        
+        if (isEmpty()) {
+            // Lista vacía: el nuevo nodo apunta a sí mismo
+            head = tail = newNode;
+            newNode.next = newNode;
+            newNode.prev = newNode;
+        } else {
+            // Insertar al final
+            newNode.prev = tail;
+            newNode.next = head;
+            tail.next = newNode;
+            head.prev = newNode;
+            tail = newNode;
+        }
     }
 
     public T removeFirst() {
-        T first = null;
+        if (isEmpty()) {
+            return null;
+        }
+        
+        T first = head.data;
+        
+        if (head == tail) {
+            // Solo hay un nodo
+            head = null;
+            tail = null;
+        } else {
+            // Hay más de un nodo
+            head = head.next;
+            head.prev = tail;
+            tail.next = head;
+        }
+        
         return first;
     }
 
     public T removeLast() {
-        T last = null;
+        if (isEmpty()) {
+            return null;
+        }
+        
+        T last = tail.data;
+        
+        if (head == tail) {
+            // Solo hay un nodo
+            head = null;
+            tail = null;
+        } else {
+            // Hay más de un nodo
+            tail = tail.prev;
+            tail.next = head;
+            head.prev = tail;
+        }
+        
         return last;
     }
 
