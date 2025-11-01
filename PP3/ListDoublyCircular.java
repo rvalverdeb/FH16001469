@@ -12,19 +12,81 @@ public class ListDoublyCircular<T> implements ListInterface<T> {
     }
 
     public void addFirst(T value) {
+
+        NodeDoubly<T> newNode = new NodeDoubly<>(value);
+
+    // Si la lista está vacía
+    if (head == null) {
+        head = newNode;
+        tail = newNode;
+        head.next = head;
+        head.prev = head;
+    } else {
+        newNode.next = head;
+        newNode.prev = tail;
+        head.prev = newNode;
+        tail.next = newNode;
+        head = newNode;
+    }
     }
 
     public void addLast(T value) {
+
+         NodeDoubly<T> newNode = new NodeDoubly<>(value);
+
+    // Si la lista está vacía
+    if (head == null) {
+        head = newNode;
+        tail = newNode;
+        head.next = head;
+        head.prev = head;
+    } else {
+        newNode.prev = tail;
+        newNode.next = head;
+        tail.next = newNode;
+        head.prev = newNode;
+        tail = newNode;
+    }
     }
 
     public T removeFirst() {
-        T first = null;
-        return first;
+    if (head == null) {
+        return null;
+    }
+         T value = head.data;
+    
+
+    // Si solo hay un nodo
+    if (head == tail) {
+        head = null;
+        tail = null;
+    } else {
+        head = head.next;
+        head.prev = tail;
+        tail.next = head;
+    }
+
+    return value;
     }
 
     public T removeLast() {
-        T last = null;
-        return last;
+        if (tail == null) {
+        return null;
+    }
+
+    T value = tail.data;
+
+    // Si solo hay un nodo
+    if (head == tail) {
+        head = null;
+        tail = null;
+    } else {
+        tail = tail.prev;
+        tail.next = head;
+        head.prev = tail;
+    }
+
+    return value;
     }
 
     public T getFirst() {
@@ -128,4 +190,5 @@ public class ListDoublyCircular<T> implements ListInterface<T> {
         System.out.println(" ↳ Print: ");
         list.printList();
     }
+    
 }
