@@ -40,7 +40,6 @@ public class TheStack<Type> implements TheStackInterface<Type> {
 
     // push(item); ❌ Esto llama al mismo método, generando recursión infinita
 
-    }
 
     /**
      * Extrae el elemento superior de la pila.
@@ -50,7 +49,8 @@ public class TheStack<Type> implements TheStackInterface<Type> {
      */
 
     public Type pop() {
-        // Stack.pop() lanza excepción si está vacía, usamos ternario
+        
+        //Stack.pop() lanza excepción si está vacía, usamos ternario
         // return _stack.pop(); ❌ Lanza EmptyStackException si la pila está vacía
 
         return _stack.isEmpty() ? null : _stack.pop();
