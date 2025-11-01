@@ -9,8 +9,8 @@
 
 ## 👨‍💻 Datos del estudiante
 - **Nombre:** Reyner Valverde Barboza  
-- **Carné:**FH16001469
-- **IDE o editor utilizado: Visual Studio Code  
+- **Carné:** FH16001469
+- **IDE o editor utilizado:** Visual Studio Code  
 
 ---
 
