@@ -3,20 +3,20 @@
 **Curso:** SC-304  
 **Profesor:** Luis Andrés Rojas Matey  
 **Valor:** 5%  
-**Fecha de entrega:** Lunes 3 de noviembre antes de las 6 pm  
+**Fecha de entrega:** Lunes 3 de noviembre antes de las 6 pm.  
 
 ---
 
 ## 👨‍💻 Datos del estudiante
-- **Nombre: Reyner Valverde Barboza  
-- **Carné:FH16001469
+- **Nombre:** Reyner Valverde Barboza  
+- **Carné:**FH16001469
 - **IDE o editor utilizado: Visual Studio Code  
 
 ---
 
 ## 🧠 Descripción del programa
 Esta práctica implementa una **lista circular doblemente enlazada** en **Java**, completando los métodos `addFirst`, `addLast`, `removeFirst` y `removeLast` dentro de la clase `ListDoublyCircular`.  
-El objetivo es comprender el funcionamiento interno de las listas enlazadas y reforzar el manejo de punteros/referencias entre nodos.
+El objetivo es comprender el funcionamiento interno de las listas enlazadas y reforzar el manejo de punteros / referencias entre nodos.
 
 
 ---
@@ -50,12 +50,12 @@ Usaría una **lista enlazada simple**.
 - [Documentación oficial de Java SE 21](https://docs.oracle.com/en/java/javase/21/docs/api/)
 - [GeeksforGeeks – Doubly Circular Linked List](https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/)
 - [W3Schools – Java Generics](https://www.w3schools.com/java/java_generics.asp)
-- [ChatGPT] )(https://chatgpt.com/)
+- [ChatGPT](https://chatgpt.com/)
 ---
 
 ## 🤖 Prompts utilizados con IA
 - Prompt realizado en ChatGPT (GPT-5):  
-  “Crea el código completo en Java para la práctica programada 3 del curso Estructuras de Datos (SC-304), basada en el enunciado del profesor Luis Andrés Rojas Matey y explicamelo.”
+  “Crea el código completo en Java para la práctica programada 3 del curso Estructuras de Datos (SC-304), basada en el enunciado del profesor Luis Andrés Rojas Matey y explícamelo.”
 
 ---
 
