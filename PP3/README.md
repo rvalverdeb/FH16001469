@@ -1,4 +1,4 @@
-# Práctica Programada 2 – Estructuras de Datos
+# Práctica Programada 3 – Estructuras de Datos
 
 **Curso:** SC-304  
 **Profesor:** Luis Andrés Rojas Matey  
@@ -66,5 +66,6 @@ Para ejecutar el programa con un parámetro `n` (número natural ≥ 0):
 ```bash
 javac ListDoublyCircular.java
 java ListDoublyCircular 2
+```
 
 **Fin del README.md**
