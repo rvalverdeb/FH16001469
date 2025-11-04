@@ -50,7 +50,7 @@ public class SandwichGuyApp {
     }
 
     private void buildUI() {
-        frame = new JFrame("The Sandwich Guy - Avance I");
+        frame = new JFrame("The Sandwich Guy");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 500);
         frame.setLayout(new BorderLayout());
