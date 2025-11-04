@@ -2,9 +2,13 @@
 
 
 **Curso:** Estructuras de Datos (SC-304)
+
 **Periodo:** III Cuatrimestre 2025
+
 **Profesor:** Luis Andrés Rojas Matey
+
 **Valor Avance I:** 15%
+
 **Valor Avance II:** 10%
 
 
