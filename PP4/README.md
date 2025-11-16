@@ -77,7 +77,8 @@ Compilar:
 
 ```bash
 javac BinTreeIntArray.java
-
+```
+---
 
 Ejecutar:
 
