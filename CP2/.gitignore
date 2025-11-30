@@ -27,6 +27,6 @@ replay_pid*
 
 *.txt
 *.csv
-*md
+*.md
 
 repos/
