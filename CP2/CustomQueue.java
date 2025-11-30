@@ -1,4 +1,5 @@
 public class CustomQueue {
+// Fuente: "ChatGPT conversation with the student" (no se modificaron Nodes ni Main; solo lógica interna)
 
     private QueueNode _head;
 
@@ -9,21 +10,36 @@ public class CustomQueue {
     public void enqueue(int index) {
         var node = new QueueNode(index);
 
-        // Actualizar
+        if (_head == null) {
+            _head = node;
+        } else {
+            QueueNode temp = _head;
+            while (temp.getNext() != null) {
+                temp = temp.getNext();
+            }
+            temp.setNext(node);
+        }
     }
 
     public int dequeue() {
-        var index = -1;
+        int index = -1;
 
-        // Actualizar
+        if (_head != null) {
+            index = _head.getIndex();   // ← CORRECCIÓN
+            _head = _head.getNext();
+        }
 
         return index;
     }
 
     public int getSize() {
-        var size = 0;
+        int size = 0;
 
-        // Actualizar
+        QueueNode temp = _head;  // ← CORRECCIÓN
+        while (temp != null) {
+            size++;
+            temp = temp.getNext();
+        }
 
         return size;
     }

@@ -1,4 +1,5 @@
 public class CustomStack {
+// Fuente: "ChatGPT conversation with the student" (no se modificaron Nodes ni Main; solo lógica interna)
 
     private StackNode _head;
 
@@ -7,26 +8,29 @@ public class CustomStack {
     }
 
     public void push(String word) {
-        var node = new StackNode(word);
-
-        // Actualizar
-
+        StackNode node = new StackNode(word);
+        node.setNext(_head);
         _head = node;
     }
 
     public String pop() {
         String word = null;
 
-        // Actualizar
+        if (_head != null) {
+            word = _head.getWord();
+            _head = _head.getNext();
+        }
 
         return word;
     }
 
     public int size() {
-        var length = 0;
-
-        // Actualizar
-
+        int length = 0;
+        StackNode temp = _head;
+        while (temp != null) {
+            length++;
+            temp = temp.getNext();
+        }
         return length;
     }
 

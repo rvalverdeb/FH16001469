@@ -1,4 +1,5 @@
 import java.util.Arrays;
+// Fuente: "ChatGPT conversation with the student" (no se modificaron Nodes ni Main; solo lógica interna)
 
 public class CustomGraph {
 
@@ -19,6 +20,10 @@ public class CustomGraph {
         int tgt = Arrays.binarySearch(_chars, target);
         
         // Actualizar
+         if (src >= 0 && tgt >= 0) {
+            _matrix[src][tgt] += 1;
+        }
+    
     }
 
     public String getMatrix() {

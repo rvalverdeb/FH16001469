@@ -1,4 +1,5 @@
 import java.util.Stack;
+// Fuente: "ChatGPT conversation with the student" (no se modificaron Nodes ni Main; solo lógica interna)
 
 public class CustomTree {
 
@@ -14,7 +15,24 @@ public class CustomTree {
 
     private TreeNode insert(TreeNode node, double tf, String word) {
 
-        // Actualizar
+        // Caso base: insertar nuevo nodo
+        if (node == null) {
+            TreeNode newNode = new TreeNode(tf);
+            newNode.addWord(word);   // ← CORREGIDO
+            return newNode;
+        }
+
+        // Insertar recursivamente según el TF
+        if (tf < node.getTf()) {
+            node.setLeft(insert(node.getLeft(), tf, word));
+        } 
+        else if (tf > node.getTf()) {
+            node.setRight(insert(node.getRight(), tf, word));
+        } 
+        else {
+            // TF igual → agregar palabra al stack del nodo
+            node.addWord(word);  // ← ESTO sí estaba bien
+        }
 
         return node;
     }
@@ -27,6 +45,7 @@ public class CustomTree {
         var builder = new StringBuilder();
         var stack = new Stack<TreeNode>();
         var node = root;
+
         while (node != null || !stack.empty()) {
             while (node != null) {
                 stack.push(node);
@@ -36,6 +55,7 @@ public class CustomTree {
             builder.append(node.getTf() + "\n ↳ " + node.getWords() + "\n\n");
             node = node.getRight();
         }
+
         return builder.toString();
     }
 }
