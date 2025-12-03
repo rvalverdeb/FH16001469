@@ -1,49 +1,34 @@
 package model;
 
-import java.util.Stack;
-
+/**
+ * Wrapper sobre CircularList para la Mano del jugador.
+ */
 public class Mano {
-    private Stack<Carta> cartas = new Stack<>();
 
-    // Agrega una carta al mazo (parte superior de la pila)
-    public void push(Carta c) {
-        cartas.push(c);
+    private final CircularList<Carta> lista = new CircularList<>();
+
+    public void agregar(Carta c) {
+        if (c != null)
+            lista.add(c);
     }
 
-    // Saca la carta superior del mazo
-    public Carta pop() {
-        if (cartas.isEmpty()) {
-            System.out.println("El mazo está vacío.");
-            return null;
-        }
-        return cartas.pop();
+    public Carta removerActual() {
+        return lista.removeCurrent();
     }
 
-    // Verifica si el mazo está vacío
-    public boolean isEmpty() {
-        return cartas.isEmpty();
+    public void ordenar() {
+        lista.ordenar();
     }
 
-    // Muestra todas las cartas en consola (solo para depuración)
-    public void show() {
-        if (cartas.isEmpty()) {
-            System.out.println("No hay cartas en el mazo.");
-        } else {
-            cartas.forEach(System.out::println);
-        }
+    public String mostrar() {
+        return lista.mostrar();
     }
 
-    // Devuelve las cartas como texto (para mostrarlas en JTextArea)
-    @Override
-    public String toString() {
-        if (cartas.isEmpty()) {
-            return "Mazo vacío";
-        }
+    public int size() {
+        return lista.size();
+    }
 
-        StringBuilder sb = new StringBuilder();
-        for (Carta c : cartas) {
-            sb.append(c.toString()).append("\n");
-        }
-        return sb.toString();
+    public boolean estaVacia() {
+        return lista.isEmpty();
     }
 }

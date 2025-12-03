@@ -1,37 +1,19 @@
 package model;
 
 /**
- *
- * @author USER
+ * Representa una carta con nombre (A,2,..,K), palo (♣ ♦ ♥ ♠) y valor numérico
+ * 1..13
  */
-public class Carta {
-    public enum Suit {
-        HEARTS, DIAMONDS, SPADES, CLUBS
-    }
+public class Carta implements Comparable<Carta> {
 
-    private final Suit palo;
-    private final int valor; // 1..13 (1=A, 11=J,12=Q,13=K)
-    private final String nombre; // "As", "Dos", ...
+    private final String nombre;
+    private final String palo;
+    private final int valor;
 
-    // Constructor correcto
-    public Carta(Suit palo, int valor) {
+    public Carta(String nombre, String palo, int valor) {
+        this.nombre = nombre;
         this.palo = palo;
         this.valor = valor;
-        this.nombre = calcularNombre(valor);
-    }
-
-    private String calcularNombre(int v) {
-        return switch (v) {
-            case 1 -> "As";
-            case 11 -> "J";
-            case 12 -> "Q";
-            case 13 -> "K";
-            default -> Integer.toString(v);
-        };
-    }
-
-    public Suit getPalo() {
-        return palo;
     }
 
     public int getValor() {
@@ -42,26 +24,20 @@ public class Carta {
         return nombre;
     }
 
-    public String getSimboloPalo() {
-        return switch (palo) {
-            case HEARTS -> "♥";
-            case DIAMONDS -> "♦";
-            case SPADES -> "♠";
-            case CLUBS -> "♣";
-        };
+    public String getPalo() {
+        return palo;
     }
 
-    public String getColor() {
-        return (palo == Suit.HEARTS || palo == Suit.DIAMONDS) ? "ROJO" : "NEGRO";
-    }
-
-    // Valor numérico para cálculos (1..13)
-    public int valorNumerico() {
-        return valor;
+    @Override
+    public int compareTo(Carta o) {
+        int cmp = Integer.compare(this.valor, o.valor);
+        if (cmp != 0)
+            return cmp;
+        return this.palo.compareTo(o.palo);
     }
 
     @Override
     public String toString() {
-        return String.format("[%s|%s]", getNombre(), getSimboloPalo());
+        return "[" + nombre + "|" + palo + "]";
     }
 }

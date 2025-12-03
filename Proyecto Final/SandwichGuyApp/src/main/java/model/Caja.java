@@ -4,45 +4,50 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Caja: contiene las 52 cartas iniciales. Permite inicializar y transferir al
+ * mazo.
+ */
 public class Caja {
-    private List<Carta> cartas = new ArrayList<>();
 
-    // Inicializa la caja con las 52 cartas
+    private final List<Carta> cartas = new ArrayList<>();
+
+    public Caja() {
+        // no inicializar aquí para que el flujo de la app decida cuándo
+    }
+
     public void inicializar() {
-        Carta.Suit[] palos = {
-                Carta.Suit.HEARTS,
-                Carta.Suit.DIAMONDS,
-                Carta.Suit.SPADES,
-                Carta.Suit.CLUBS
-        };
-
-        // 1..13 (1 = A, 11 = J, 12 = Q, 13 = K)
-        for (Carta.Suit palo : palos) {
-            for (int valor = 1; valor <= 13; valor++) {
-                cartas.add(new Carta(palo, valor));
+        cartas.clear();
+        String[] palos = { "♣", "♦", "♥", "♠" };
+        String[] nombres = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+        for (String palo : palos) {
+            for (int i = 0; i < nombres.length; i++) {
+                cartas.add(new Carta(nombres[i], palo, i + 1));
             }
         }
     }
 
-    public List<Carta> getCartas() {
-        return cartas;
-    }
-
-    // Baraja aleatoriamente las cartas de la caja
-    // y las transfiere al mazo, dejando la caja vacía.
+    /**
+     * Baraja la caja y transfiere las referencias de Carta al mazo (vacía la caja).
+     * Evita crear nuevas instancias.
+     */
     public void barajar(Mazo mazo) {
-        if (cartas.isEmpty()) {
-            System.out.println("La caja está vacía, no hay cartas para barajar.");
-            return;
-        }
-
-        List<Carta> copia = new ArrayList<>(cartas);
-        Collections.shuffle(copia);
-
-        for (Carta c : copia) {
+        Collections.shuffle(cartas);
+        mazo.vaciar(); // evita duplicados si se llama múltiples veces
+        for (Carta c : cartas)
             mazo.push(c);
-        }
-
-        cartas.clear(); // Vacía la caja
+        cartas.clear();
     }
+
+    public boolean estaVacio() {
+        return cartas.isEmpty();
+    }
+
+    public int size() {
+        return cartas.size();
+    }
+
+    public List<Carta> getCartas() {
+        return new ArrayList<>(cartas);
+    } // copia segura para GUI
 }

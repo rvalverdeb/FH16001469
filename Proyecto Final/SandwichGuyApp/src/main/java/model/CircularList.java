@@ -1,67 +1,105 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 /**
- *
- * @author USER
+ * Lista circular genérica básica que requiere T extends Comparable<T>.
+ * Implementación optimizada con tail para inserciones O(1).
  */
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+public class CircularList<T extends Comparable<T>> {
 
+    private class Nodo {
+        T dato;
+        Nodo sig;
 
-// Implementación simple de lista circular basada en nodos (suficiente para Avance I)
-public class CircularList<T> implements Iterable<T> {
-private static class Node<E> { E value; Node<E> next; Node(E v){value=v;} }
-private Node<T> tail; // tail.next = head
-private int size = 0;
+        Nodo(T dato) {
+            this.dato = dato;
+        }
+    }
 
+    private Nodo actual = null;
+    private Nodo tail = null; // último nodo (su .sig = actual)
+    private int size = 0;
 
-public void addLast(T value){
-Node<T> n = new Node<>(value);
-if(tail==null){ tail = n; tail.next = n; }
-else { n.next = tail.next; tail.next = n; tail = n; }
-size++;
-}
+    public void add(T dato) {
+        Nodo nuevo = new Nodo(dato);
+        if (actual == null) {
+            actual = nuevo;
+            tail = nuevo;
+            nuevo.sig = nuevo;
+        } else {
+            nuevo.sig = actual;
+            tail.sig = nuevo;
+            tail = nuevo;
+        }
+        size++;
+    }
 
+    public T removeCurrent() {
+        if (actual == null)
+            return null;
+        T eliminado = actual.dato;
 
-public T removeAt(int index){
-if(size==0) throw new NoSuchElementException();
-index = ((index % size) + size) % size;
-Node<T> prev = tail;
-for(int i=0;i<index;i++) prev = prev.next;
-Node<T> target = prev.next;
-if(target==tail) tail = (target==tail && size==1) ? null : prev;
-prev.next = target.next;
-size--;
-return target.value;
-}
+        if (size == 1) {
+            actual = null;
+            tail = null;
+            size = 0;
+            return eliminado;
+        }
 
+        // buscar anterior (O(n))
+        Nodo ant = actual;
+        while (ant.sig != actual)
+            ant = ant.sig;
 
-public T get(int index){
-if(size==0) throw new NoSuchElementException();
-index = ((index % size) + size) % size;
-Node<T> cur = tail.next;
-for(int i=0;i<index;i++) cur = cur.next;
-return cur.value;
-}
+        // si actual es tail, actualizar tail
+        if (actual == tail)
+            tail = ant;
 
+        ant.sig = actual.sig;
+        actual = actual.sig;
+        size--;
+        return eliminado;
+    }
 
-public int size(){ return size; }
+    public void ordenar() {
+        if (size < 2)
+            return;
+        @SuppressWarnings("unchecked")
+        T[] arr = (T[]) new Comparable[size];
+        Nodo temp = actual;
+        for (int i = 0; i < size; i++) {
+            arr[i] = temp.dato;
+            temp = temp.sig;
+        }
+        java.util.Arrays.sort(arr);
+        // reconstruir lista
+        actual = null;
+        tail = null;
+        size = 0;
+        for (T x : arr)
+            add(x);
+        // mantener actual en el primer elemento (tail.sig)
+        if (tail != null)
+            actual = tail.sig;
+    }
 
+    public String mostrar() {
+        if (actual == null)
+            return "(vacía)";
+        StringBuilder sb = new StringBuilder();
+        Nodo temp = actual;
+        int idx = 1;
+        do {
+            sb.append(idx++).append(": ").append(temp.dato.toString()).append("\n");
+            temp = temp.sig;
+        } while (temp != actual);
+        return sb.toString().trim();
+    }
 
-public boolean isEmpty(){ return size==0; }
+    public int size() {
+        return size;
+    }
 
-
-@Override
-public Iterator<T> iterator(){
-return new Iterator<>(){
-private Node<T> current = (tail==null)? null : tail.next;
-private int remaining = size;
-@Override public boolean hasNext(){ return remaining>0; }
-@Override public T next(){ if(!hasNext()) throw new NoSuchElementException(); T v = current.value; current = current.next; remaining--; return v; }
-};
-}
+    public boolean isEmpty() {
+        return size == 0;
+    }
 }

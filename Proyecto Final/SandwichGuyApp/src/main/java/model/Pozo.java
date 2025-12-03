@@ -3,48 +3,37 @@ package model;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Pozo: cola FIFO de descartes.
+ */
 public class Pozo {
-    private Queue<Carta> cartas = new LinkedList<>();
 
-    // Agrega una carta al final del pozo (enqueue)
+    private final Queue<Carta> cartas = new LinkedList<>();
+
     public void enqueue(Carta c) {
-        cartas.add(c);
+        if (c != null)
+            cartas.add(c);
     }
 
-    // Saca la carta del frente del pozo (dequeue)
+    /** alias por compatibilidad con versiones previas */
+    public void colocar(Carta c) {
+        enqueue(c);
+    }
+
     public Carta dequeue() {
-        if (cartas.isEmpty()) {
-            System.out.println("El pozo está vacío.");
-            return null;
-        }
         return cartas.poll();
     }
 
-    // Verifica si el pozo está vacío
-    public boolean isEmpty() {
-        return cartas.isEmpty();
+    public int size() {
+        return cartas.size();
     }
 
-    // Muestra el contenido del pozo en consola (para depuración)
-    public void show() {
-        if (cartas.isEmpty()) {
-            System.out.println("No hay cartas en el pozo.");
-        } else {
-            cartas.forEach(System.out::println);
-        }
-    }
-
-    // Devuelve el contenido del pozo como texto (para JTextArea o consola)
-    @Override
-    public String toString() {
-        if (cartas.isEmpty()) {
-            return "Pozo vacío";
-        }
-
+    public String mostrar() {
+        if (cartas.isEmpty())
+            return "(Pozo vacío)";
         StringBuilder sb = new StringBuilder();
-        for (Carta c : cartas) {
-            sb.append(c.toString()).append("\n");
-        }
-        return sb.toString();
+        for (Carta c : cartas)
+            sb.append(c.toString()).append(" ");
+        return sb.toString().trim();
     }
 }
