@@ -1,4 +1,4 @@
-# The Sandwich Guy — Proyecto Final (Avance II)
+# The Sandwich Guy — Proyecto Final (Avance Final)
 
 Curso: Estructuras de Datos (SC-304) — III Cuatrimestre 2025  
 Profesor: Luis Andrés Rojas Matey
